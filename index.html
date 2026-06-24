@@ -1,310 +1,296 @@
 <!DOCTYPE html>
-
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>เที่ยวทะเลภาคใต้</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>South Thailand Travel Guide</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
 
 body{
-font-family:'Prompt',sans-serif;
-scroll-behavior:smooth;
+  margin:0;
+  font-family:'Kanit',sans-serif;
+  background:#eef8ff;
 }
 
+/* HERO */
 .hero{
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1507525428034-b723cf961d3');
+  height:60vh;
+  background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  position:relative;
+  text-align:center;
+}
 
-background-size:cover;
-background-position:center;
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0;
+  position:relative;
+}
+
+.hero p{
+  position:relative;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px;
+}
+
+.title{
+  font-size:26px;
+  margin:40px 0 20px;
+  color:#023e8a;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  cursor:pointer;
+  transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+  transform:translateY(-8px);
 }
 
-</style>
+.main-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
 
+.card-body{
+  padding:12px;
+}
+
+.card h3{
+  margin:5px 0;
+  color:#0077b6;
+}
+
+/* mini images */
+.mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:5px;
+  margin-top:8px;
+}
+
+.mini-grid img{
+  width:100%;
+  height:90px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* tags */
+.tag{
+  display:inline-block;
+  background:#dff6ff;
+  color:#0077b6;
+  padding:4px 8px;
+  margin:3px;
+  font-size:12px;
+  border-radius:20px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+th{
+  background:#0077b6;
+  color:white;
+  padding:12px;
+}
+
+td{
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid #eee;
+}
+</style>
 </head>
 
-<body class="bg-slate-50">
+<body>
 
-<nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur shadow z-50">
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>🌴 เที่ยวทะเลภาคใต้ประเทศไทย 🌊</h1>
+    <p>รวมเกาะสวย น้ำใส กิจกรรม และอาหารครบทุกจุดหมาย</p>
+  </div>
+</div>
 
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+<div class="container">
 
-<h1 class="text-2xl font-bold text-sky-600">
-🌊 เที่ยวทะเลภาคใต้
-</h1>
+<div class="title">🏝️ เกาะทั้งหมด</div>
 
-<div class="hidden md:flex gap-8">
+<div class="grid">
 
-<a href="#home">หน้าแรก</a> <a href="#top">สถานที่ยอดนิยม</a> <a href="#food">อาหาร</a> <a href="#gallery">แกลเลอรี</a>
+<!-- SIMILAN -->
+<div class="card" onclick="go('https://www.google.com/maps/search/หมู่เกาะสิมิลัน')">
+<img class="main-img" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
 
+<div class="card-body">
+<h3>หมู่เกาะสิมิลัน</h3>
+
+<div class="tag">🤿 ดำน้ำลึก</div>
+<div class="tag">🐠 ปะการัง</div>
+<div class="tag">🌊 น้ำใสระดับโลก</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+</div>
+</div>
+</div>
+
+<!-- PHI PHI -->
+<div class="card" onclick="go('https://www.google.com/maps/search/เกาะพีพี')">
+<img class="main-img" src="https://images.unsplash.com/photo-1528181304800-259b08848526">
+
+<div class="card-body">
+<h3>เกาะพีพี</h3>
+
+<div class="tag">🏖️ หาดมาหยา</div>
+<div class="tag">🛶 พายเรือ</div>
+<div class="tag">🌅 วิวพระอาทิตย์ตก</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+</div>
+</div>
+</div>
+
+<!-- LIPE -->
+<div class="card" onclick="go('https://www.google.com/maps/search/เกาะหลีเป๊ะ')">
+<img class="main-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+
+<div class="card-body">
+<h3>เกาะหลีเป๊ะ</h3>
+
+<div class="tag">🏝️ ถนนคนเดิน</div>
+<div class="tag">🤿 ดำน้ำตื้น</div>
+<div class="tag">🚤 น้ำใส</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+</div>
+</div>
+</div>
+
+<!-- TAO -->
+<div class="card" onclick="go('https://www.google.com/maps/search/เกาะเต่า')">
+<img class="main-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+
+<div class="card-body">
+<h3>เกาะเต่า</h3>
+
+<div class="tag">🤿 ดำน้ำ PADI</div>
+<div class="tag">🐢 เต่าทะเล</div>
+<div class="tag">🌊 จุดดำน้ำลึก</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
+</div>
+</div>
+</div>
+
+<!-- PHANG NGA -->
+<div class="card" onclick="go('https://www.google.com/maps/search/อ่าวพังงา')">
+<img class="main-img" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+
+<div class="card-body">
+<h3>อ่าวพังงา</h3>
+
+<div class="tag">🛶 คายัคถ้ำ</div>
+<div class="tag">🪨 เขาตะปู</div>
+<div class="tag">🌄 วิวภูเขาหินปูน</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
+</div>
+</div>
+</div>
+
+<!-- KRADAN -->
+<div class="card" onclick="go('https://www.google.com/maps/search/เกาะกระดาน ตรัง')">
+<img class="main-img" src="https://images.unsplash.com/photo-1528181304800-259b08848526">
+
+<div class="card-body">
+<h3>เกาะกระดาน (ตรัง)</h3>
+
+<div class="tag">🏖️ หาดขาว</div>
+<div class="tag">🤿 ดำน้ำตื้น</div>
+<div class="tag">🌊 น้ำใสระดับโลก</div>
+
+<div class="mini-grid">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+</div>
+</div>
 </div>
 
 </div>
 
-</nav>
+<!-- TABLE -->
+<div class="title">📅 ตารางช่วงเวลาเที่ยวแนะนำ</div>
 
-<section id="home" class="hero min-h-screen flex items-center">
-
-<div class="max-w-7xl mx-auto px-6 text-white">
-
-<h1 class="text-7xl font-bold">
-ค้นพบมนต์เสน่ห์
-ทะเลภาคใต้
-</h1>
-
-<p class="text-xl mt-6">
-สถานที่ท่องเที่ยวชื่อดังของประเทศไทย
-</p>
-
-<a href="#top"
-class="inline-block mt-8 bg-sky-500 px-8 py-4 rounded-full">
-
-เริ่มสำรวจ
-
-</a>
-
-</div>
-
-</section>
-
-<section id="top" class="py-24">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-5xl font-bold text-center mb-16">
-🏝️ สถานที่ยอดนิยม
-</h2>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
-
-<img src="similan.jpg"
-class="h-64 w-full object-cover">
-
-<div class="p-6">
-
-<h3 class="text-2xl font-bold">
-หมู่เกาะสิมิลัน
-</h3>
-
-<p class="mt-3 text-gray-600">
-จังหวัดพังงา
-</p>
-
-</div>
-
-</div>
-
-<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
-
-<img src="lipe.jpg"
-class="h-64 w-full object-cover">
-
-<div class="p-6">
-
-<h3 class="text-2xl font-bold">
-เกาะหลีเป๊ะ
-</h3>
-
-<p class="mt-3 text-gray-600">
-จังหวัดสตูล
-</p>
-
-</div>
-
-</div>
-
-<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
-
-<img src="phiphi.jpg"
-class="h-64 w-full object-cover">
-
-<div class="p-6">
-
-<h3 class="text-2xl font-bold">
-เกาะพีพี
-</h3>
-
-<p class="mt-3 text-gray-600">
-จังหวัดกระบี่
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="food" class="py-24 bg-white">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-5xl font-bold text-center mb-16">
-🍤 อาหารพื้นเมือง
-</h2>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="bg-sky-50 p-8 rounded-3xl">
-หมี่ฮกเกี้ยน
-</div>
-
-<div class="bg-sky-50 p-8 rounded-3xl">
-โรตี
-</div>
-
-<div class="bg-sky-50 p-8 rounded-3xl">
-แกงส้มใต้
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="py-24 bg-sky-600 text-white">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-5xl font-bold text-center mb-16">
-⭐ Top 5 สถานที่ยอดนิยม
-</h2>
-
-<div class="grid md:grid-cols-5 gap-6">
-
-<div class="bg-white/10 p-6 rounded-3xl text-center">
-🥇
-<h3 class="font-bold mt-3">หมู่เกาะสิมิลัน</h3>
-</div>
-
-<div class="bg-white/10 p-6 rounded-3xl text-center">
-🥈
-<h3 class="font-bold mt-3">เกาะหลีเป๊ะ</h3>
-</div>
-
-<div class="bg-white/10 p-6 rounded-3xl text-center">
-🥉
-<h3 class="font-bold mt-3">เกาะพีพี</h3>
-</div>
-
-<div class="bg-white/10 p-6 rounded-3xl text-center">
-4️⃣
-<h3 class="font-bold mt-3">อ่าวมาหยา</h3>
-</div>
-
-<div class="bg-white/10 p-6 rounded-3xl text-center">
-5️⃣
-<h3 class="font-bold mt-3">เกาะเต่า</h3>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="py-24 bg-white">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-5xl font-bold text-center mb-16">
-📅 ช่วงเวลาที่เหมาะแก่การท่องเที่ยว
-</h2>
-
-<div class="overflow-x-auto">
-
-<table class="w-full bg-white rounded-3xl shadow-xl">
-
-<thead class="bg-sky-600 text-white">
-
+<table>
 <tr>
-<th class="p-4">สถานที่</th>
-<th class="p-4">ช่วงแนะนำ</th>
+<th>เกาะ</th>
+<th>ช่วงเวลา</th>
+<th>ไฮไลต์</th>
 </tr>
 
-</thead>
-
-<tbody>
-
-<tr>
-<td class="p-4">หมู่เกาะสิมิลัน</td>
-<td class="p-4">พฤศจิกายน - พฤษภาคม</td>
-</tr>
-
-<tr>
-<td class="p-4">เกาะหลีเป๊ะ</td>
-<td class="p-4">พฤศจิกายน - เมษายน</td>
-</tr>
-
-<tr>
-<td class="p-4">เกาะพีพี</td>
-<td class="p-4">ตุลาคม - เมษายน</td>
-</tr>
-
-</tbody>
-
+<tr><td>สิมิลัน</td><td>พ.ย. - พ.ค.</td><td>น้ำใสที่สุด ดำน้ำระดับโลก</td></tr>
+<tr><td>พีพี</td><td>พ.ย. - เม.ย.</td><td>หาดมาหยา + วิวสวย</td></tr>
+<tr><td>หลีเป๊ะ</td><td>พ.ย. - เม.ย.</td><td>ทะเลใส ถนนคนเดิน</td></tr>
+<tr><td>เกาะเต่า</td><td>ก.พ. - ก.ย.</td><td>เรียนดำน้ำ + เต่าทะเล</td></tr>
+<tr><td>พังงา</td><td>พ.ย. - เม.ย.</td><td>คายัคถ้ำทะเล</td></tr>
+<tr><td>เกาะกระดาน</td><td>พ.ย. - พ.ค.</td><td>หาดขาวระดับโลก</td></tr>
 </table>
 
 </div>
 
-</div>
-
-</section>
-
-
-<section id="gallery" class="py-24">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-5xl font-bold text-center mb-16">
-📸 แกลเลอรี
-</h2>
-
-<div class="grid md:grid-cols-3 gap-6">
-
-<img src="gallery1.jpg" class="rounded-3xl">
-
-<img src="gallery2.jpg" class="rounded-3xl">
-
-<img src="gallery3.jpg" class="rounded-3xl">
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="bg-slate-900 text-white py-12 text-center">
-
-<h3 class="text-3xl font-bold">
-เที่ยวทะเลภาคใต้
-</h3>
-
-<p class="mt-4">
-Southern Thailand Travel Guide
-</p>
-
-</footer>
+<script>
+function go(url){
+  window.open(url,'_blank');
+}
+</script>
 
 </body>
 </html>
-
