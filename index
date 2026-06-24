@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เที่ยวทะเลภาคใต้</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Prompt',sans-serif;
+scroll-behavior:smooth;
+}
+
+.hero{
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1507525428034-b723cf961d3');
+
+background-size:cover;
+background-position:center;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+</style>
+
+</head>
+
+<body class="bg-slate-50">
+
+<nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur shadow z-50">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+
+<h1 class="text-2xl font-bold text-sky-600">
+🌊 เที่ยวทะเลภาคใต้
+</h1>
+
+<div class="hidden md:flex gap-8">
+
+<a href="#home">หน้าแรก</a> <a href="#top">สถานที่ยอดนิยม</a> <a href="#food">อาหาร</a> <a href="#gallery">แกลเลอรี</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<section id="home" class="hero min-h-screen flex items-center">
+
+<div class="max-w-7xl mx-auto px-6 text-white">
+
+<h1 class="text-7xl font-bold">
+ค้นพบมนต์เสน่ห์
+ทะเลภาคใต้
+</h1>
+
+<p class="text-xl mt-6">
+สถานที่ท่องเที่ยวชื่อดังของประเทศไทย
+</p>
+
+<a href="#top"
+class="inline-block mt-8 bg-sky-500 px-8 py-4 rounded-full">
+
+เริ่มสำรวจ
+
+</a>
+
+</div>
+
+</section>
+
+<section id="top" class="py-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold text-center mb-16">
+🏝️ สถานที่ยอดนิยม
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
+
+<img src="similan.jpg"
+class="h-64 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-2xl font-bold">
+หมู่เกาะสิมิลัน
+</h3>
+
+<p class="mt-3 text-gray-600">
+จังหวัดพังงา
+</p>
+
+</div>
+
+</div>
+
+<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
+
+<img src="lipe.jpg"
+class="h-64 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-2xl font-bold">
+เกาะหลีเป๊ะ
+</h3>
+
+<p class="mt-3 text-gray-600">
+จังหวัดสตูล
+</p>
+
+</div>
+
+</div>
+
+<div class="card bg-white rounded-3xl shadow-xl overflow-hidden transition">
+
+<img src="phiphi.jpg"
+class="h-64 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-2xl font-bold">
+เกาะพีพี
+</h3>
+
+<p class="mt-3 text-gray-600">
+จังหวัดกระบี่
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="food" class="py-24 bg-white">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold text-center mb-16">
+🍤 อาหารพื้นเมือง
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-sky-50 p-8 rounded-3xl">
+หมี่ฮกเกี้ยน
+</div>
+
+<div class="bg-sky-50 p-8 rounded-3xl">
+โรตี
+</div>
+
+<div class="bg-sky-50 p-8 rounded-3xl">
+แกงส้มใต้
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="py-24 bg-sky-600 text-white">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold text-center mb-16">
+⭐ Top 5 สถานที่ยอดนิยม
+</h2>
+
+<div class="grid md:grid-cols-5 gap-6">
+
+<div class="bg-white/10 p-6 rounded-3xl text-center">
+🥇
+<h3 class="font-bold mt-3">หมู่เกาะสิมิลัน</h3>
+</div>
+
+<div class="bg-white/10 p-6 rounded-3xl text-center">
+🥈
+<h3 class="font-bold mt-3">เกาะหลีเป๊ะ</h3>
+</div>
+
+<div class="bg-white/10 p-6 rounded-3xl text-center">
+🥉
+<h3 class="font-bold mt-3">เกาะพีพี</h3>
+</div>
+
+<div class="bg-white/10 p-6 rounded-3xl text-center">
+4️⃣
+<h3 class="font-bold mt-3">อ่าวมาหยา</h3>
+</div>
+
+<div class="bg-white/10 p-6 rounded-3xl text-center">
+5️⃣
+<h3 class="font-bold mt-3">เกาะเต่า</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="py-24 bg-white">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold text-center mb-16">
+📅 ช่วงเวลาที่เหมาะแก่การท่องเที่ยว
+</h2>
+
+<div class="overflow-x-auto">
+
+<table class="w-full bg-white rounded-3xl shadow-xl">
+
+<thead class="bg-sky-600 text-white">
+
+<tr>
+<th class="p-4">สถานที่</th>
+<th class="p-4">ช่วงแนะนำ</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td class="p-4">หมู่เกาะสิมิลัน</td>
+<td class="p-4">พฤศจิกายน - พฤษภาคม</td>
+</tr>
+
+<tr>
+<td class="p-4">เกาะหลีเป๊ะ</td>
+<td class="p-4">พฤศจิกายน - เมษายน</td>
+</tr>
+
+<tr>
+<td class="p-4">เกาะพีพี</td>
+<td class="p-4">ตุลาคม - เมษายน</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="gallery" class="py-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold text-center mb-16">
+📸 แกลเลอรี
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<img src="gallery1.jpg" class="rounded-3xl">
+
+<img src="gallery2.jpg" class="rounded-3xl">
+
+<img src="gallery3.jpg" class="rounded-3xl">
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="bg-slate-900 text-white py-12 text-center">
+
+<h3 class="text-3xl font-bold">
+เที่ยวทะเลภาคใต้
+</h3>
+
+<p class="mt-4">
+Southern Thailand Travel Guide
+</p>
+
+</footer>
+
+</body>
+</html>
+
