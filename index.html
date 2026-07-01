@@ -1,296 +1,549 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>South Thailand Travel Guide</title>
+<!doctype html>
+<html lang="th"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260701-01-096c888"}');</script><script src="/_sdk/e4192b04afde3ce7.telemetry_sdk.js" integrity="sha512-4eZpyKBd3YJnsIPrIpaBqo7QT5UZ6+KSFXkSu1IQiB7jKM8y67ChRhZ5Yh6JfuOJCbPdISiNcS6nLKZzIMG1uQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Southern Sea Thailand</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+  <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', serif; }
+        .modal-overlay { background: rgba(0,0,0,0.7); }
+        .star-btn { cursor: pointer; transition: color 0.15s; }
+        .star-btn:hover, .star-btn.active { color: #f59e0b; }
+        .tag-active { background: #0e7490 !important; color: #fff !important; }
+        .dest-card { transition: transform 0.3s, box-shadow 0.3s; }
+        .dest-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .fade-in { animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    </style>
+  <script src="/_sdk/5d8c692e132d2125.resizing_sdk.js" type="text/javascript" integrity="sha512-/Du3Fqe12kKsCd3BrbaNQEPtMxQi9S5hbJhnTf09AAilpqYsGa4N0rnimSX1Ui4dwNElKlen6VlI+E1n/NEfrA=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen w-full" style="background: rgb(240, 253, 250);">
+  <header class="relative w-full" style="height: calc(70 * min(var(--vh, 1vh), 1vh));"><img data-template-id="hero-img" class="canva-image absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3434622/pexels-photo-3434622.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="Stunning aerial shot of a turquoise shoreline in Thailand with boats and palm trees">
+   <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+   <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+    <h1 data-template-id="hero-title" class="canva-text heading-font text-white drop-shadow-lg" style="color: rgb(255, 255, 255); font-weight: bold; font-style: normal; font-size: 42px;">ทะเลใต้ สวรรค์แห่งอันดามัน &amp; อ่าวไทย</h1>
+    <p data-template-id="hero-subtitle" class="canva-text text-white/90 mt-4 max-w-2xl" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 18px;">ค้นพบ 6 จุดหมายปลายทางทะเลภาคใต้ที่สวยที่สุด พร้อมข้อมูลครบจบในที่เดียว</p>
+   </div>
+  </header>
+  <main class="w-full max-w-7xl mx-auto px-4 py-12"><!-- Filter Tags -->
+   <section class="mb-10">
+    <h2 data-template-id="filter-heading" class="canva-text heading-font mb-4" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 24px;">เลือกสไตล์การเที่ยวของคุณ</h2>
+    <div class="flex flex-wrap gap-3" id="filter-container"><button class="filter-tag px-5 py-2 rounded-full border-2 border-cyan-700 text-cyan-700 font-medium transition" data-filter="diving" data-template-id="filter-diving" style="color: rgb(14, 116, 144); font-weight: 400; font-style: normal; font-size: 16px;">🤿 สายดำน้ำ/ปะการัง</button> <button class="filter-tag px-5 py-2 rounded-full border-2 border-pink-600 text-pink-600 font-medium transition" data-filter="party" data-template-id="filter-party" style="color: rgb(219, 39, 119); font-weight: 400; font-style: normal; font-size: 16px;">🎉 สายปาร์ตี้/หรูหรา</button> <button class="filter-tag px-5 py-2 rounded-full border-2 border-emerald-700 text-emerald-700 font-medium transition" data-filter="chill" data-template-id="filter-chill" style="color: rgb(4, 120, 87); font-weight: 400; font-style: normal; font-size: 16px;">🌿 สายชิล/ธรรมชาติ</button> <button class="filter-tag px-5 py-2 rounded-full border-2 border-gray-500 text-gray-500 font-medium transition tag-active" data-filter="all" data-template-id="filter-all" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">ทั้งหมด</button>
+    </div>
+   </section><!-- Destinations Grid -->
+   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" id="dest-grid"><!-- Similan -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="diving" onclick="openModal('similan')"><img data-template-id="card-similan-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/2365775/pexels-photo-2365775.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A stunning aerial shot of a turquoise beach with rocks and lush greenery in Thailand">
+     <div class="p-4">
+      <h3 data-template-id="card-similan-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">หมู่เกาะสิมิลัน</h3>
+      <p data-template-id="card-similan-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">พังงา • สายดำน้ำ/ปะการัง</p>
+     </div>
+    </article><!-- Phi Phi -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="party" onclick="openModal('phiphi')"><img data-template-id="card-phiphi-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/35126794/pexels-photo-35126794.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Breathtaking view of turquoise waters and towering limestone cliffs under a clear sky in Krabi, Thailand">
+     <div class="p-4">
+      <h3 data-template-id="card-phiphi-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">เกาะพีพี</h3>
+      <p data-template-id="card-phiphi-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">กระบี่ • สายปาร์ตี้/หรูหรา</p>
+     </div>
+    </article><!-- Lipe -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="chill" onclick="openModal('lipe')"><img data-template-id="card-lipe-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Serene beach with turquoise waters, white sand, and palm trees under a sunny sky">
+     <div class="p-4">
+      <h3 data-template-id="card-lipe-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">เกาะหลีเป๊ะ</h3>
+      <p data-template-id="card-lipe-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">สตูล • สายชิล/ธรรมชาติ</p>
+     </div>
+    </article><!-- Koh Tao -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="diving" onclick="openModal('kohtao')"><img data-template-id="card-kohtao-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/3046638/pexels-photo-3046638.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Epic split-level image featuring sea cliffs and underwater diver">
+     <div class="p-4">
+      <h3 data-template-id="card-kohtao-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">เกาะเต่า</h3>
+      <p data-template-id="card-kohtao-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">สุราษฎร์ธานี • สายดำน้ำ/ปะการัง</p>
+     </div>
+    </article><!-- Koh Samui -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="party" onclick="openModal('samui')"><img data-template-id="card-samui-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/13281334/pexels-photo-13281334.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Relaxing beach resort scene with palm trees and ocean view in Koh Samui, Thailand">
+     <div class="p-4">
+      <h3 data-template-id="card-samui-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">เกาะสมุย</h3>
+      <p data-template-id="card-samui-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">สุราษฎร์ธานี • สายปาร์ตี้/หรูหรา</p>
+     </div>
+    </article><!-- Phang Nga -->
+    <article class="dest-card rounded-2xl overflow-hidden bg-white shadow-md cursor-pointer" data-tags="chill" onclick="openModal('phangnga')"><img data-template-id="card-phangnga-img" class="canva-image w-full h-48 object-cover" loading="lazy" src="https://images.pexels.com/photos/6437646/pexels-photo-6437646.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Stunning rock formations at James Bond Island, Thailand with vibrant green waters">
+     <div class="p-4">
+      <h3 data-template-id="card-phangnga-title" class="canva-text font-bold" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 18px;">อ่าวพังงา</h3>
+      <p data-template-id="card-phangnga-desc" class="canva-text text-sm mt-1 text-gray-600" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">พังงา • สายชิล/ธรรมชาติ</p>
+     </div>
+    </article>
+   </section><!-- Itineraries -->
+ <!-- Itineraries -->
+<section class="mb-16">
+    <h2 data-template-id="itinerary-heading" class="canva-text heading-font mb-6"
+        style="color: rgb(19, 78, 74); font-weight: bold; font-size:24px;">
+        แผนการเดินทางแนะนำ
+    </h2>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-body{
-  margin:0;
-  font-family:'Kanit',sans-serif;
-  background:#eef8ff;
+        <!-- สิมิลัน -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🏝️ ทริป 3 วัน 2 คืน หมู่เกาะสิมิลัน
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> เดินทางถึงจังหวัดพังงา เช็คอินที่พัก
+                เตรียมอุปกรณ์ดำน้ำและพักผ่อนริมทะเล<br><br>
+
+                <b>วันที่ 2</b> นั่งสปีดโบ๊ทเที่ยวหมู่เกาะสิมิลัน
+                ดำน้ำชมปะการังที่เกาะ 4 เกาะ 9
+                ถ่ายรูปหินเรือใบ จุดชมวิวชื่อดังของสิมิลัน<br><br>
+
+                <b>วันที่ 3</b> เดินเล่นชายหาด
+                ซื้อของฝากและเดินทางกลับ
+            </p>
+        </div>
+
+        <!-- พีพี -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🗓️ ทริป 3 วัน 2 คืน ตะลุยกระบี่-พีพี
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> เดินทางถึงกระบี่ เช็คอิน
+                เที่ยวหาดไร่เลย์และถนนคนเดินอ่าวนาง<br><br>
+
+                <b>วันที่ 2</b> นั่งเรือสปีดโบ๊ทเที่ยวเกาะพีพี
+                ดำน้ำอ่าวมาหยา อ่าวโล๊ะซามะ
+                ชมพระอาทิตย์ตก<br><br>
+
+                <b>วันที่ 3</b> เที่ยวเกาะไผ่
+                เล่นน้ำทะเลและเดินทางกลับ
+            </p>
+        </div>
+
+        <!-- หลีเป๊ะ -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🌅 ทริป 3 วัน 2 คืน เกาะหลีเป๊ะ
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> เดินทางถึงท่าเรือปากบารา
+                นั่งเรือไปเกาะหลีเป๊ะ
+                เดินเล่นถนนคนเดิน<br><br>
+
+                <b>วันที่ 2</b> ดำน้ำโซนในและโซนนอก
+                เที่ยวเกาะหินงาม ร่องน้ำจาบัง
+                ชมหาดซันไรส์<br><br>
+
+                <b>วันที่ 3</b> พักผ่อนริมทะเล
+                ซื้อของฝากก่อนเดินทางกลับ
+            </p>
+        </div>
+
+        <!-- เกาะเต่า -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🤿 ทริปดำน้ำ เกาะเต่า 4 วัน
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> เดินทางถึงเกาะเต่า
+                เรียนดำน้ำ Open Water<br><br>
+
+                <b>วันที่ 2</b> ดำน้ำ Chumphon Pinnacle
+                และอ่าวม่วง<br><br>
+
+                <b>วันที่ 3</b> ดำน้ำ Sail Rock
+                Japanese Garden<br><br>
+
+                <b>วันที่ 4</b> ชมวิว John-Suwan Viewpoint
+                แล้วเดินทางกลับ
+            </p>
+        </div>
+
+        <!-- สมุย -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🌴 ทริปพักผ่อน เกาะสมุย 4 วัน
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> เช็คอินรีสอร์ต
+                เล่นน้ำหาดเฉวง<br><br>
+
+                <b>วันที่ 2</b> เที่ยววัดพระใหญ่
+                หินตาหินยาย
+                น้ำตกหน้าเมือง<br><br>
+
+                <b>วันที่ 3</b> ล่องเรือเที่ยวเกาะแตน
+                เกาะมัดสุม ดำน้ำตื้น<br><br>
+
+                <b>วันที่ 4</b> ซื้อของฝาก
+                เดินทางกลับ
+            </p>
+        </div>
+
+        <!-- อ่าวพังงา -->
+        <div class="rounded-xl p-6 shadow-md bg-white hover:shadow-xl transition">
+            <h3 class="font-bold mb-3 text-cyan-700 text-lg">
+                🚤 ทริปอ่าวพังงา 2 วัน 1 คืน
+            </h3>
+            <p class="text-gray-700 text-sm leading-7">
+                <b>วันที่ 1</b> ล่องเรือเที่ยวเขาตาปู
+                พายเรือแคนูลอดถ้ำ
+                เที่ยวเกาะปันหยี<br><br>
+
+                <b>วันที่ 2</b> ชมพระอาทิตย์ขึ้น
+                ซื้อของฝากและเดินทางกลับ
+            </p>
+        </div>
+
+    </div>
+</section>
+   <section class="mb-16">
+    <h2 data-template-id="tips-heading" class="canva-text heading-font mb-6" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 24px;">เตรียมตัวก่อนไป</h2>
+    <div data-template-id="tips-card" class="canva-card rounded-xl p-6 shadow-md" style="background: rgb(255, 255, 255);">
+     <ul class="space-y-3 list-disc list-inside">
+      <li data-template-id="tip-1" class="canva-text" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">🧴 ใช้ครีมกันแดดชนิดที่ไม่ทำลายปะการัง (Reef-safe sunscreen) เท่านั้น</li>
+      <li data-template-id="tip-2" class="canva-text" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">💊 พกยาแก้เมาเรือไว้เสมอ โดยเฉพาะช่วงคลื่นลมแรง</li>
+      <li data-template-id="tip-3" class="canva-text" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">🎒 เตรียมกระเป๋ากันน้ำสำหรับโทรศัพท์และเอกสารสำคัญ</li>
+      <li data-template-id="tip-4" class="canva-text" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">🚫 ห้ามเก็บปะการัง หอย หรือสิ่งมีชีวิตจากทะเลกลับบ้าน</li>
+      <li data-template-id="tip-5" class="canva-text" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">💵 เตรียมเงินสดไว้บ้าง เกาะบางแห่งไม่มีตู้ ATM หรือรับบัตรเครดิต</li>
+     </ul>
+    </div>
+   </section><!-- Reviews -->
+   <section class="mb-16">
+    <h2 data-template-id="reviews-heading" class="canva-text heading-font mb-6" style="color: rgb(19, 78, 74); font-weight: bold; font-style: normal; font-size: 24px;">รีวิวจากนักท่องเที่ยว</h2><!-- Review Form -->
+    <form id="review-form" class="rounded-xl p-6 shadow-md bg-white mb-8">
+     <div class="mb-4"><label data-template-id="form-name-label" for="reviewer-name" class="canva-text block mb-1 font-medium" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">ชื่อของคุณ</label> <input id="reviewer-name" type="text" class="w-full border rounded-lg px-3 py-2" required="">
+     </div>
+     <div class="mb-4"><label data-template-id="form-dest-label" for="review-dest" class="canva-text block mb-1 font-medium" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">สถานที่ที่ไป</label> <select id="review-dest" class="w-full border rounded-lg px-3 py-2" required=""> <option value="หมู่เกาะสิมิลัน">หมู่เกาะสิมิลัน</option> <option value="เกาะพีพี">เกาะพีพี</option> <option value="เกาะหลีเป๊ะ">เกาะหลีเป๊ะ</option> <option value="เกาะเต่า">เกาะเต่า</option> <option value="เกาะสมุย">เกาะสมุย</option> <option value="อ่าวพังงา">อ่าวพังงา</option> </select>
+     </div>
+     <div class="mb-4"><label data-template-id="form-rating-label" class="canva-text block mb-1 font-medium" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">ให้คะแนน</label>
+      <div id="star-rating" class="flex gap-1 text-gray-300 text-2xl"><span class="star-btn" data-star="1">★</span> <span class="star-btn" data-star="2">★</span> <span class="star-btn" data-star="3">★</span> <span class="star-btn" data-star="4">★</span> <span class="star-btn" data-star="5">★</span>
+      </div>
+     </div>
+     <div class="mb-4"><label data-template-id="form-review-label" for="review-text" class="canva-text block mb-1 font-medium" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">เขียนรีวิว</label> <textarea id="review-text" rows="3" class="w-full border rounded-lg px-3 py-2" required=""></textarea>
+     </div><button data-template-id="form-submit-btn" type="submit" class="canva-button px-6 py-2 rounded-lg font-medium" style="background: rgb(14, 116, 144); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">ส่งรีวิว</button>
+     <p id="form-status" class="mt-2 text-sm hidden"></p>
+    </form><!-- Review List -->
+    <div id="review-list" class="space-y-4"></div>
+    <p id="no-reviews" data-template-id="no-reviews-msg" class="canva-text text-center text-gray-400 py-4" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">ยังไม่มีรีวิว เป็นคนแรกที่แชร์ประสบการณ์!</p>
+   </section>
+  </main><!-- Detail Modal -->
+  <div id="modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4" onclick="closeModalOutside(event)">
+   <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 relative fade-in" id="modal-content"><button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i data-lucide="x" style="width:24px;height:24px"></i></button>
+    <div id="modal-body"></div>
+   </div>
+  </div><!-- Review card template -->
+  <template id="review-template">
+   <div data-template-id="review-card" class="canva-card rounded-lg p-4 shadow-sm">
+    <div class="flex justify-between items-center mb-1"><span data-template-id="review-name" class="canva-text font-semibold"></span> <span class="review-stars text-amber-400"></span>
+    </div>
+    <p class="text-xs text-gray-400 review-dest-label mb-1"></p>
+    <p data-template-id="review-text-display" class="canva-text text-sm"></p>
+   </div>
+  </template>
+  <script src="/_sdk/c94a279e896d0a23.editing_sdk.js" integrity="sha512-uhzUP50YzTVKO+Zk7rEhhvjMMNFy592eHXVEXciJzhLpIQxrlwzWv/DQvyYWQ+AKpYwxxCvjgWkVa5LTga2NWg=="></script>
+  <script src="/_sdk/48bf7c4c70d0d03c.data_sdk.js" integrity="sha512-e/yrQJz+prdXXt4yUvxXhl1WBGu3BRkP8X0fipGXI5gqiFClI7wI6K3TQnD7d63vx+BVhwzIvY6r8OrpX7lXJA=="></script>
+  <script>
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLk7h4nkAnttrPqqwUQe97j9BeSa-H_T4I_zuN_uvL4OjS_i4ufOhr4ncoQFTt92sIOg/exec";
+
+const VISITOR_URL = "https://script.google.com/macros/s/AKfycbwH57iWJ_OZRCskI0ar4VcRgNsXk0SrPQXaim5jxuzfp-nf1GVWuKXCohP8ysX1IhmHng/exec";
+
+// Destination data (reference content)
+const destinations = {
+    similan: {
+        name: 'หมู่เกาะสิมิลัน',
+        province: 'พังงา',
+        highlights: 'จุดชมวิวหินเรือใบ, ดำน้ำดูปะการังน้ำตื้น, หาดทรายขาวละเอียด, จุดดำน้ำลึกระดับโลก',
+        bestTime: 'เปิดเกาะ: ต.ค. – พ.ค. (ปิดช่วงมรสุม มิ.ย. – ก.ย.)',
+        howToGet: 'บินไปสนามบินภูเก็ต แล้วต่อรถไปท่าเรือทับละมุ จ.พังงา ใช้เวลาเรือ ~1.5 ชม.',
+                map: 'https://www.google.com/maps?q=Mu+Ko+Similan+National+Park',
+    },
+    phiphi: {
+        name: 'เกาะพีพี',
+        province: 'กระบี่',
+        highlights: 'อ่าวมาหยา (Maya Bay), ดำน้ำดูฉลามหูดำ, จุดชมวิว Phi Phi Viewpoint, ปาร์ตี้ริมหาด',
+        bestTime: 'ช่วง พ.ย. – เม.ย. อากาศดี ทะเลสงบ',
+        howToGet: 'นั่งเรือสปีดโบ๊ทจากท่าเรือปากบารา หรือจากภูเก็ต/กระบี่ ใช้เวลา ~1-2 ชม.',
+        map: 'https://www.google.com/maps?q=Phi+Phi+Islands',
+    },
+    lipe: {
+        name: 'เกาะหลีเป๊ะ',
+        province: 'สตูล',
+        highlights: 'หาดซันไรส์/หาดพัทยา, ดำน้ำดูปะการังเกาะหินงาม, น้ำใสระดับมัลดีฟส์เมืองไทย',
+        bestTime: 'ช่วง พ.ย. – เม.ย. (มรสุม พ.ค. – ต.ค. เรือบางสายหยุดวิ่ง)',
+        howToGet: 'บินไปสนามบินหาดใหญ่ แล้วต่อรถไปท่าเรือปากบารา นั่งเรือ ~1.5 ชม.',
+        map:'https://www.google.com/maps?q=Koh+Lipe',
+    },
+    kohtao: {
+        name: 'เกาะเต่า',
+        province: 'สุราษฎร์ธานี',
+        highlights: 'ดำน้ำลึก (Scuba Diving) ราคาถูกที่สุดในโลก, อ่าวม่วง, จุดชมวิว John-Suwan, ดูฉลามวาฬ',
+        bestTime: 'ช่วง มี.ค. – ก.ย. น้ำใส เหมาะดำน้ำ',
+        howToGet: 'บินไปสุราษฎร์ธานี/เกาะสมุย แล้วนั่งเรือต่อไปเกาะเต่า ~1.5-2 ชม.',
+        map:'https://www.google.com/maps?q=Koh+Tao',
+    },
+    samui: {
+        name: 'เกาะสมุย',
+        province: 'สุราษฎร์ธานี',
+        highlights: 'หาดเฉวง, วัดพระใหญ่, หินตา-หินยาย, สปาหรู, ไนท์ไลฟ์ชาวเกาว์บอย',
+        bestTime: 'ช่วง ม.ค. – ก.ย. (มรสุม ต.ค. – ธ.ค.)',
+        howToGet: 'บินตรงไปสนามบินเกาะสมุย หรือ บินไปสุราษฎร์ธานีแล้วนั่งเรือข้ามฟาก ~1.5 ชม.',
+        map:'https://www.google.com/maps?q=Koh+Samui',
+    },
+    phangnga: {
+        name: 'อ่าวพังงา',
+        province: 'พังงา',
+        highlights: 'เขาตาปู (James Bond Island), ถ้ำลอด, หมู่บ้านกลางน้ำเกาะปันหยี, พายเรือแคนู',
+        bestTime: 'เที่ยวได้ตลอดปี (ช่วง พ.ย. – เม.ย. อากาศดีที่สุด)',
+        howToGet: 'จากภูเก็ตหรือกระบี่ ขับรถไปท่าเรือสุรกุล/ท่าด่าน แล้วนั่งเรือทัวร์',
+        map:'https://www.google.com/maps?q=Phang+Nga+Bay',
+    }
+};
+
+// Filter logic
+let activeFilter = 'all';
+document.querySelectorAll('.filter-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('tag-active'));
+        btn.classList.add('tag-active');
+        activeFilter = btn.dataset.filter;
+        document.querySelectorAll('#dest-grid article').forEach(card => {
+            if (activeFilter === 'all' || card.dataset.tags === activeFilter) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Modal
+function openModal(key) {
+    const d = destinations[key];
+    document.getElementById('modal-body').innerHTML = `
+        <h2 class="text-2xl font-bold heading-font mb-1">${d.name}</h2>
+        <p class="text-sm text-gray-500 mb-4">${d.province}</p>
+        <div class="space-y-4">
+            <div><h4 class="font-semibold text-cyan-800">🌟 ไฮไลต์ห้ามพลาด</h4><p class="text-sm text-gray-700">${d.highlights}</p></div>
+            <div><h4 class="font-semibold text-cyan-800">📅 ช่วงเวลาที่ควรไป</h4><p class="text-sm text-gray-700">${d.bestTime}</p></div>
+            <div><h4 class="font-semibold text-cyan-800">🚢 วิธีการเดินทาง</h4><p class="text-sm text-gray-700">${d.howToGet}</p></div>
+
+<div>
+    <h4 class="font-semibold text-cyan-800">📍 Google Maps</h4>
+
+    <a href="${d.map}"
+       target="_blank"
+       class="inline-block mt-2 px-4 py-2 bg-cyan-700 text-white rounded-lg hover:bg-cyan-800">
+        เปิด Google Maps
+    </a>
+</div>
+
+        </div>
+    `;
+    document.getElementById('modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    lucide.createIcons();
+}
+function closeModal() {
+    document.getElementById('modal').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+function closeModalOutside(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+
+// Star rating
+let selectedRating = 0;
+document.querySelectorAll('.star-btn').forEach(star => {
+    star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.star);
+        document.querySelectorAll('.star-btn').forEach((s, i) => {
+            s.classList.toggle('active', i < selectedRating);
+        });
+    });
+});
+
+
+
+lucide.createIcons();
+
+// ===== Review System =====
+async function loadReviews(){
+ try{
+   const res=await fetch(SCRIPT_URL);
+   const data=await res.json();
+   const list=document.getElementById("review-list");
+   const empty=document.getElementById("no-reviews");
+   list.innerHTML="";
+   if(!data.length){empty.classList.remove("hidden");return;}
+   empty.classList.add("hidden");
+   data.forEach(r=>{
+      const t=document.getElementById("review-template").content.cloneNode(true);
+      t.querySelector("[data-template-id='review-name']").textContent=r.name;
+      t.querySelector(".review-stars").textContent="★".repeat(Number(r.rating));
+      t.querySelector(".review-dest-label").textContent=r.destination;
+      t.querySelector("[data-template-id='review-text-display']").textContent=r.review;
+      list.appendChild(t);
+   });
+ }catch(e){console.error(e);}
+}
+document.getElementById("review-form").addEventListener("submit",async(e)=>{
+ e.preventDefault();
+ if(selectedRating===0){alert("กรุณาให้คะแนน");return;}
+ const body={
+   name:document.getElementById("reviewer-name").value,
+   destination:document.getElementById("review-dest").value,
+   rating:selectedRating,
+   review:document.getElementById("review-text").value
+ };
+ const status=document.getElementById("form-status");
+ try{
+   await fetch(SCRIPT_URL,{
+     method:"POST",
+     headers:{"Content-Type":"text/plain"},
+     body:JSON.stringify(body)
+   });
+   status.textContent="ส่งรีวิวสำเร็จ";
+   status.classList.remove("hidden");
+   document.getElementById("review-form").reset();
+   selectedRating=0;
+   document.querySelectorAll(".star-btn").forEach(s=>s.classList.remove("active"));
+   loadReviews();
+ }catch(err){
+   status.textContent="ส่งรีวิวไม่สำเร็จ";
+   status.classList.remove("hidden");
+ }
+});
+loadReviews();
+// ===== End Review System =====
+
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a141faca9799029f',t:'MTc4Mjg3MjkzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+
+async function loadVisitors() {
+    try {
+        const res = await fetch(VISITOR_URL + "?action=visit");
+        const data = await res.json();
+
+        animateCounter(data.visitors);
+
+    } catch (err) {
+        console.error(err);
+    }
 }
 
-/* HERO */
-.hero{
-  height:60vh;
-  background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  position:relative;
-  text-align:center;
+function animateCounter(target) {
+
+    const element = document.getElementById("visitorCount");
+
+    let current = 0;
+
+    const duration = 1500; // 1.5 วินาที
+
+    const frameRate = 60;
+
+    const totalFrames = duration / (1000 / frameRate);
+
+    const increment = target / totalFrames;
+
+    const timer = setInterval(() => {
+
+        current += increment;
+
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+
+        element.textContent = Math.floor(current).toLocaleString("th-TH");
+
+    }, 1000 / frameRate);
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-}
+window.addEventListener("load", loadVisitors);
 
-.hero h1{
-  font-size:42px;
-  margin:0;
-  position:relative;
-}
-
-.hero p{
-  position:relative;
-}
-
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:30px;
-}
-
-.title{
-  font-size:26px;
-  margin:40px 0 20px;
-  color:#023e8a;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:20px;
-}
-
-/* CARD */
-.card{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-}
-
-.main-img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:12px;
-}
-
-.card h3{
-  margin:5px 0;
-  color:#0077b6;
-}
-
-/* mini images */
-.mini-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:5px;
-  margin-top:8px;
-}
-
-.mini-grid img{
-  width:100%;
-  height:90px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-/* tags */
-.tag{
-  display:inline-block;
-  background:#dff6ff;
-  color:#0077b6;
-  padding:4px 8px;
-  margin:3px;
-  font-size:12px;
-  border-radius:20px;
-}
-
-/* TABLE */
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-th{
-  background:#0077b6;
-  color:white;
-  padding:12px;
-}
-
-td{
-  padding:12px;
-  text-align:center;
-  border-bottom:1px solid #eee;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <h1>🌴 เที่ยวทะเลภาคใต้ประเทศไทย 🌊</h1>
-    <p>รวมเกาะสวย น้ำใส กิจกรรม และอาหารครบทุกจุดหมาย</p>
-  </div>
-</div>
-
-<div class="container">
-
-<div class="title">🏝️ เกาะทั้งหมด</div>
-
-<div class="grid">
-
-<!-- SIMILAN -->
-<div class="card" onclick="go('https://www.google.com/maps/search/หมู่เกาะสิมิลัน')">
-<img class="main-img" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-
-<div class="card-body">
-<h3>หมู่เกาะสิมิลัน</h3>
-
-<div class="tag">🤿 ดำน้ำลึก</div>
-<div class="tag">🐠 ปะการัง</div>
-<div class="tag">🌊 น้ำใสระดับโลก</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-</div>
-</div>
-</div>
-
-<!-- PHI PHI -->
-<div class="card" onclick="go('https://www.google.com/maps/search/เกาะพีพี')">
-<img class="main-img" src="https://images.unsplash.com/photo-1528181304800-259b08848526">
-
-<div class="card-body">
-<h3>เกาะพีพี</h3>
-
-<div class="tag">🏖️ หาดมาหยา</div>
-<div class="tag">🛶 พายเรือ</div>
-<div class="tag">🌅 วิวพระอาทิตย์ตก</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-</div>
-</div>
-</div>
-
-<!-- LIPE -->
-<div class="card" onclick="go('https://www.google.com/maps/search/เกาะหลีเป๊ะ')">
-<img class="main-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-
-<div class="card-body">
-<h3>เกาะหลีเป๊ะ</h3>
-
-<div class="tag">🏝️ ถนนคนเดิน</div>
-<div class="tag">🤿 ดำน้ำตื้น</div>
-<div class="tag">🚤 น้ำใส</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-</div>
-</div>
-</div>
-
-<!-- TAO -->
-<div class="card" onclick="go('https://www.google.com/maps/search/เกาะเต่า')">
-<img class="main-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-
-<div class="card-body">
-<h3>เกาะเต่า</h3>
-
-<div class="tag">🤿 ดำน้ำ PADI</div>
-<div class="tag">🐢 เต่าทะเล</div>
-<div class="tag">🌊 จุดดำน้ำลึก</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
-</div>
-</div>
-</div>
-
-<!-- PHANG NGA -->
-<div class="card" onclick="go('https://www.google.com/maps/search/อ่าวพังงา')">
-<img class="main-img" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-
-<div class="card-body">
-<h3>อ่าวพังงา</h3>
-
-<div class="tag">🛶 คายัคถ้ำ</div>
-<div class="tag">🪨 เขาตะปู</div>
-<div class="tag">🌄 วิวภูเขาหินปูน</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img src="https://images.unsplash.com/photo-1528181304800-259b08848526">
-</div>
-</div>
-</div>
-
-<!-- KRADAN -->
-<div class="card" onclick="go('https://www.google.com/maps/search/เกาะกระดาน ตรัง')">
-<img class="main-img" src="https://images.unsplash.com/photo-1528181304800-259b08848526">
-
-<div class="card-body">
-<h3>เกาะกระดาน (ตรัง)</h3>
-
-<div class="tag">🏖️ หาดขาว</div>
-<div class="tag">🤿 ดำน้ำตื้น</div>
-<div class="tag">🌊 น้ำใสระดับโลก</div>
-
-<div class="mini-grid">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-</div>
-</div>
-</div>
-
-</div>
-
-<!-- TABLE -->
-<div class="title">📅 ตารางช่วงเวลาเที่ยวแนะนำ</div>
-
-<table>
-<tr>
-<th>เกาะ</th>
-<th>ช่วงเวลา</th>
-<th>ไฮไลต์</th>
-</tr>
-
-<tr><td>สิมิลัน</td><td>พ.ย. - พ.ค.</td><td>น้ำใสที่สุด ดำน้ำระดับโลก</td></tr>
-<tr><td>พีพี</td><td>พ.ย. - เม.ย.</td><td>หาดมาหยา + วิวสวย</td></tr>
-<tr><td>หลีเป๊ะ</td><td>พ.ย. - เม.ย.</td><td>ทะเลใส ถนนคนเดิน</td></tr>
-<tr><td>เกาะเต่า</td><td>ก.พ. - ก.ย.</td><td>เรียนดำน้ำ + เต่าทะเล</td></tr>
-<tr><td>พังงา</td><td>พ.ย. - เม.ย.</td><td>คายัคถ้ำทะเล</td></tr>
-<tr><td>เกาะกระดาน</td><td>พ.ย. - พ.ค.</td><td>หาดขาวระดับโลก</td></tr>
-</table>
-
-</div>
-
-<script>
-function go(url){
-  window.open(url,'_blank');
-}
 </script>
 
-</body>
-</html>
+<footer class="mt-16 bg-slate-900 text-gray-300">
+
+    <div class="max-w-7xl mx-auto px-6 py-10">
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- ข้อมูลเว็บไซต์ -->
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    🌊 Southern Sea Thailand
+                </h3>
+
+                <p class="text-sm leading-7">
+                    เว็บไซต์แนะนำสถานที่ท่องเที่ยวทะเลภาคใต้
+                    รวมข้อมูลสถานที่ท่องเที่ยว รีวิว และข้อมูลการเดินทาง
+                    เพื่อช่วยให้นักท่องเที่ยววางแผนทริปได้สะดวกยิ่งขึ้น
+                </p>
+            </div>
+
+            <!-- ติดต่อ -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">
+                    ติดต่อเรา
+                </h4>
+
+                <div class="space-y-2 text-sm">
+
+                    <p>📞 081-234-5678</p>
+
+                    <p>📧 info@southernsea.com</p>
+
+                    <p>📍 สงขลา ประเทศไทย</p>
+
+                </div>
+            </div>
+
+            <!-- ผู้เข้าชม -->
+            <div class="text-center">
+
+                <h4 class="text-lg font-semibold text-white mb-3">
+                    ผู้เข้าชมเว็บไซต์
+                </h4>
+
+                <h2 id="visitorCount"
+                    class="text-4xl font-extrabold text-cyan-400">
+                    0
+                </h2>
+
+                <p class="text-sm text-gray-400 mt-2">
+                    จำนวนผู้เข้าชมทั้งหมด
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr class="border-slate-700 my-8">
+
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+
+            <p>
+                © 2026 Southern Sea Thailand. All Rights Reserved.
+            </p>
+
+            <div class="flex gap-6 mt-4 md:mt-0">
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    Facebook
+                </a>
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    Instagram
+                </a>
+
+                <a href="#" class="hover:text-cyan-400 transition">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body></html>
